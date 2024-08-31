@@ -1,24 +1,17 @@
 <template>
-  <div>Component Content</div>
-</template>
-<script>
-import { PluginManager } from './pluginManager';
-import eventBus from './eventBus';
+  <div id="app">
+    <div>Component Content</div>
+    <custom-component></custom-component>
+    <dropdown-menu></dropdown-menu>
 
+  </div>
+</template>
+
+<script>
 
 export default {
-  data() {
-    return {
-      pluginLoaded: false
-    };
-  },
-  components: {
-    CustomComponent: defineComponent(() =>
-      import('./plugins/examplePlugin.js').then((module) => module.default.component)
-    )
-  },
-  mounted() {
-    this.pluginLoaded = true;
-  }
-};
+  name: 'App',
+  // Since 'CustomComponent' is registered globally, no need to import or declare it here
+
+}
 </script>
