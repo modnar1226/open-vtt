@@ -1,10 +1,13 @@
 <template>
-  <div id="app">
-    <div>Component Content</div>
-    <custom-component></custom-component>
-    <dropdown-menu></dropdown-menu>
-
-  </div>
+  <router-view />
+  <!--
+    <div id="app">
+      <div>Component Content</div>
+      <custom-component></custom-component>
+      <dropdown-menu></dropdown-menu>
+      
+    </div>
+  -->
 </template>
 
 <script>

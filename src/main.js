@@ -1,5 +1,13 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import router from './router';
+
+// Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+// Import Bootstrap JS (optional, include if you need Bootstrap's JavaScript components)
+import 'bootstrap';
+
+const app = createApp(App);
 
 // List of plugins to load
 const plugins = [
@@ -15,10 +23,10 @@ Promise.all(plugins.map(path => import(
 ))).then(modules => {
     modules.forEach(module => {
         const PluginComponent = module.default.component;
-        console.log(PluginComponent)
         app.component(module.default.name, PluginComponent);
     });
 
+    app.use(router);
     // Mount the app after all components are registered
     app.mount('#app');
 }).catch(error => {
